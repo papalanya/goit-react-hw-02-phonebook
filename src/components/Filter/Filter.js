@@ -13,6 +13,7 @@ export const Filter = ({ value, onChange}) => {
     );
 };
 
+// eslint-disable-next-line react/no-typos
 Filter.PropTypes = {
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
