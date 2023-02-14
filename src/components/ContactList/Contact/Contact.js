@@ -1,9 +1,26 @@
-export const Contact = ({ contactName, contactNumber }) => {
+import PropTypes from 'prop-types';
+
+import { ContactListItem } from 'components/ContactList/Contact/Contact.styled';
+
+
+
+export const Contact = ({ contact: {id, name, number}, onDeleteContact }) => {
   return (
-    <li>
+    <ContactListItem>
       <p>
-        {contactName}: <span>{contactNumber}</span>
+        {name}: <span>{number}</span>
       </p>
-    </li>
+      <button type="button" onClick={() => onDeleteContact(id)}>Delete</button>
+    </ContactListItem>
   );
+};
+
+// eslint-disable-next-line react/no-typos
+Contact.propTypes = {
+  contact: PropTypes.exact({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+  }),
+  onDeleteContact: PropTypes.func.isRequired,
 };
