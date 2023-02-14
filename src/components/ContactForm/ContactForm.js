@@ -16,7 +16,7 @@ export class ContactForm extends Component {
 
     console.log(this.state);
 
-    this.props.onData(this.state);
+    this.props.onContact(this.state);
     this.reset();
   };
 
@@ -70,5 +70,5 @@ export class ContactForm extends Component {
 }
 
 ContactForm.propTypes = {
-  onData: PropTypes.func.isRequired,
+  onContact: PropTypes.func.isRequired,
 };
