@@ -5,40 +5,36 @@ import { ContactList } from './ContactList/ContactList';
 
 import { nanoid } from 'nanoid';
 
-
 export class App extends Component {
-    state = {
-        contacts: [],
-        name: ''
-      }
+  state = {
+    contacts: [],
+    name: '',
+  };
 
-    formSubmitHandler = ({ name }) => {
-        const newContact = {
-            id: nanoid(),
-            name,
-        };
-
-        this.setState(prevState => ({
-            contacts: [...prevState.contacts, newContact],
-        }));
+  formSubmitHandler = ({ name }) => {
+    const newContact = {
+      id: nanoid(),
+      name,
     };
 
-    render() {
-        const { contacts } = this.state;
-        return (
-            <div>
-                <h1>Phonebook</h1>
-                <ContactForm onData={this.formSubmitHandler} />
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, newContact],
+    }));
+  };
 
-                <h2>Contacts</h2>
-                <ContactList contacts={contacts} />
-            </div>
-        );
-    }
+  render() {
+    const { contacts } = this.state;
+    return (
+      <div>
+        <h1>Phonebook</h1>
+        <ContactForm onData={this.formSubmitHandler} />
+
+        <h2>Contacts</h2>
+        <ContactList contacts={contacts} />
+      </div>
+    );
+  }
 }
-
-
-
 
 // export const App = () => {
 //   return (
